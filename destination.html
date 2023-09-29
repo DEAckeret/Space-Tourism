@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./index.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  <!-- Google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Bellefair&family=Barlow:wght@400;700&display=swap"
+      rel="stylesheet">
+  
+  <title>Frontend Mentor | Space tourism website</title>
+</head>
+<body class="destination-page">
+  <div>
+    <section>
+      <nav class="flex">
+        <div class="logo">
+          <img src="./assets/shared/logo.svg" alt="logo">
+        </div>
+        <div class="nav-list-container">
+          <ul class="primary-navigation underline-indicators ff-sans-cond letter-spacing-2 uppercase">
+            <li class=""><span>00</span><a href="./index.html">Home</a></li>
+            <li class="active"><span>01</span><a href="./destination.html">Destination</a></li>
+            <li class=""><span>02</span><a href="./crew.html">Crew</a></li>
+            <li class=""><span>03</span><a href="./technology.html">Technology</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <svg class="hamburger" xmlns="http://www.w3.org/2000/svg" width="24" height="21">
+        <g class="hamburger-lines" fill="#D0D6F9" fill-rule="evenodd">
+          <path class="line-1" d="M0 1h24v3H0z"/>
+          <path class="line-2" d="M0 9h24v3H0z"/>
+          <path class="line-3" d="M0 18h24v3H0z"/>
+        </g>
+      </svg>
+    </section>
+      <section>
+        <div class="container">
+          <h2 class="numbered-title"><span>01</span>pick your destination</h2>
+          <div class="dest-container top-section bottom-section flex">
+            <div class="dest-image-container flow">
+              <!-- <h2 class="numbered-title"><span>01</span>pick your destination</h2> -->
+              <picture class="leftside-content">
+                <source class="dest-image" srcset="./assets/destination/image-moon.webp" type="image/webp">
+                <source class="dest-image" srcset="./assets/destination/image-moon.png" type="image/png">
+                <img class="dest-image" src="./assets/destination/image-moon.png" alt="Description">
+              </picture>
+            </div>
+
+            <div class="dest-content-container flow flex">
+
+              <div id="destination-menu" class="tabs-navigation underline-indicators uppercase">
+                <button id="destination-one" aria-selected="true"><span class="sr-only">moon</span>moon</button>
+                <button id="destination-two" aria-selected="false"><span class="sr-only">mars</span>mars</button>
+                <button id="destination-three" aria-selected="false"><span class="sr-only">europa</span>europa</button>
+                <button id="destination-four" aria-selected="false"><span class="sr-only">titan</span>titan</button>
+              </div>
+              
+              <h1 id="dest-name" class="rightside-content ff-serif fs-800 uppercase">Moon</h1>
+
+              <p id="dest-description" class="dest-paragraph rightside-content ff-sans-normal text-light fs-400">
+                See our planet as you’ve never seen it before. A perfect relaxing trip away to help 
+                regain perspective and come back refreshed. While you’re there, take in some history 
+                by visiting the Luna 2 and Apollo 11 landing sites.
+              </p>
+
+              <div class="dest-travel-container bottom-content flex">
+                <div class="uppercase flow dest-travel-text-container">
+                  <p class="fs-300 ff-sans-cond letter-spacing-3 text-light">avg. distance</p>
+                  <p id="dest-distance" class="fs-500 ff-serif">384,4000 km</p>
+                </div>
+
+                <div class="uppercase flow dest-travel-text-container">
+                  <p class="fs-300 ff-sans-cond letter-spacing-3 text-light">est. travel time</p>
+                  <p id="dest-travel" class="fs-500 ff-serif">3 days</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>
