@@ -935,6 +935,11 @@ acting upon.*/
         max-height: 1024px;
     }
 
+    .container {
+        height: 100%;
+        width: 100%;
+    }
+
     .logo {
         top: 1.5rem;
         left: 2rem;
@@ -1182,7 +1187,7 @@ acting upon.*/
     }
 }
 
-@media (min-width: 521px) {
+@media (min-width: 599px) {
     .hamburger {
         display: none;
     }
@@ -1202,15 +1207,15 @@ acting upon.*/
 
 
 
-/* MAX-WIDTH 520PX */
+/* MAX-WIDTH 600PX */
 
-@media (max-width: 520px) {
+@media (max-width: 600px) {
 
     .home-page body html {
         /* max-width: 375px;
         min-height: 667px; */
         min-height: 920px;
-        max-width: 520px;
+        max-width: 600px;
     }
 
     .flex {
