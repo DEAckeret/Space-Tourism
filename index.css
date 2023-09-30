@@ -335,6 +335,10 @@ body {
 }
 
 @media (max-width: 1149px) and (min-width: 768px) {
+    .home-paragraph {
+        margin-right: 7rem;
+    }
+
     .tech-text-container {
         padding-left: 2rem;
         max-width: 50%;
@@ -1178,7 +1182,7 @@ acting upon.*/
     }
 }
 
-@media (min-width: 376px) {
+@media (min-width: 521px) {
     .hamburger {
         display: none;
     }
@@ -1198,13 +1202,15 @@ acting upon.*/
 
 
 
-/* MAX-WIDTH 375PX */
+/* MAX-WIDTH 520PX */
 
-@media (max-width: 375px) {
+@media (max-width: 520px) {
 
     .home-page body html {
-        max-width: 375px;
-        min-height: 667px;
+        /* max-width: 375px;
+        min-height: 667px; */
+        min-height: 920px;
+        max-width: 520px;
     }
 
     .flex {
@@ -1284,8 +1290,10 @@ acting upon.*/
         background-repeat: no-repeat;
         background-position-y: 0rem;
         background-size: contain;
-        height: 667px;
-        width: 375px;
+        /* height: 667px;
+        width: 375px; */
+        height: auto;
+        width: auto;
         overflow: hidden;
     }
 
@@ -1303,6 +1311,7 @@ acting upon.*/
 
     .home-paragraph {
         font-size: var(--fs-200);
+        margin-inline: .5rem;
     }
 
     .large-button-container {
