@@ -1225,7 +1225,8 @@ acting upon.*/
 
     .container {
         padding-inline: 1rem;
-        max-width: 23.4rem;
+        width: auto;
+        /* max-width: 23.4rem; */
 
     }
 
@@ -1344,7 +1345,7 @@ acting upon.*/
         background-size: cover;
         aspect-ratio: 15/34;
         height: 850px;
-        width: 375px;
+        width: 100vw;
     }
     
     .dest-content-container {
