@@ -1264,7 +1264,8 @@ acting upon.*/
     }
 
     .numbered-title {
-        left: 4rem;
+        position: absolute; /*FIX THIS!!!<<<<<<<*/
+        left: 32vw;
         top: 5.5rem;
         font-size: var(--fs-300);
         letter-spacing: 2.7px;
@@ -1347,6 +1348,7 @@ acting upon.*/
         aspect-ratio: 15/34;
         height: 850px;
         width: 100vw;
+        overflow: hidden;
     }
     
     .dest-content-container {
@@ -1431,7 +1433,7 @@ acting upon.*/
         background-size: cover;
         aspect-ratio: 15/34;
         height: 710px;
-        width: 375px;
+        width: 100vw;
     }
 
     #crew-role {
@@ -1447,13 +1449,13 @@ acting upon.*/
     }
 
     .crew-image {
-        position: fixed;
-        bottom: 30rem;
-        left: 20%;
+        position: absolute;
+        bottom: 55vh;
+        left: 11vw;
         margin-left: 0;
         min-width: 0;
         height: 226.15px;
-        width: 222px;
+        width: 80vw;
         object-fit: scale-down;
         object-position: center;
         border-bottom: solid .1rem hsl(var(--clr-white)/ .25);
@@ -1461,6 +1463,16 @@ acting upon.*/
 
     .crew-text-menu-container {
         margin-top: 20rem;
+    }
+
+    .crew-text-menu-container:first-child {
+        margin-top: 22rem;
+        margin-inline: 2rem;
+    }
+
+    #crew-menu {
+        position: absolute;
+        top:46vh;
     }
 
     /* technology page mobile */
