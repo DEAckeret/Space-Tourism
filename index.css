@@ -619,6 +619,7 @@ I really like pseudo-elements and enjoyed learning about his solution to this pr
     list-style: none;
     background-color: hsl(var(--clr-white)/ .05);
     backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px); /* fallback for older versions of Safari */
 }
 
 .primary-navigation a{
@@ -1299,7 +1300,7 @@ acting upon.*/
         /* height: 667px;
         width: 375px; */
         height: auto;
-        width: auto;
+        width: 100vw;
         overflow: hidden;
     }
 
