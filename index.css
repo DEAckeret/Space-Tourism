@@ -924,6 +924,21 @@ acting upon.*/
         padding: 0 3rem 0 3rem;
         gap: var(--gap, 1.5rem);
     }
+
+    .crew-text-menu-container {
+        margin-top: 4rem;
+    }
+
+    #crew-menu {
+        margin-top: 2rem;
+    }
+
+    .crew-image {
+        max-height: 70vh;
+        object-fit: scale-down;
+        object-position: center;
+        margin-left: 1.5rem;
+    }
 }
 
 /* MAX-WIDTH 768PX */
@@ -1046,10 +1061,14 @@ acting upon.*/
         right: 15%;
         margin-left: 0;
         min-width: 384px;
-        height: 539.5px;
+        max-height: 50vh;
         width: 532px;
         object-fit: scale-down;
         object-position: center;
+    }
+
+    #crew-intro {
+        order: 2;
     }
 
     #crew-role {
@@ -1265,14 +1284,12 @@ acting upon.*/
 
     .numbered-title {
         position: absolute; /*FIX THIS!!!<<<<<<<*/
-        left: 32vw;
+        /* left: 32vw; */
+        margin-inline: 5vw;
         top: 5.5rem;
         font-size: var(--fs-300);
         letter-spacing: 2.7px;
-    }
-
-    .crew-page .numbered-title {
-        left: 6rem;
+        text-align: center;
     }
 
     .technology-page .numbered-title {
@@ -1448,8 +1465,13 @@ acting upon.*/
         font-size: var(--fs-300);
     }
 
+    .crew-image-container {
+        order: 1;
+        margin-top: 3.5rem;
+    }
+
     .crew-image {
-        position: absolute;
+        position: static;
         bottom: 55vh;
         left: 11vw;
         margin-left: 0;
@@ -1462,17 +1484,1557 @@ acting upon.*/
     }
 
     .crew-text-menu-container {
-        margin-top: 20rem;
+        order: 2;
+        margin-top: 0;
     }
 
     .crew-text-menu-container:first-child {
-        margin-top: 22rem;
         margin-inline: 2rem;
     }
 
     #crew-menu {
+        order: 1;
+    }
+
+    #crew-intro {
+        order: 2;
+    }
+
+    /* technology page mobile */
+
+    .technology-page {
+        background-image: url('./assets/technology/background-technology-mobile.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        aspect-ratio: 15/34;
+        height: 710px;
+        width: 375px;
+    }
+
+    .tech-image-container {
+        top: 8rem;
+        height: 170px;
+    }
+
+    .tech-image-container img {
+        height: 170px;
+    }
+
+    .tech-content-container {
+        margin-top: 11rem;
+    }
+
+    .tech-content-container h2 {
+        font-size: var(--fs-500);
+    }
+
+    .tech-content-container p {
+        font-size: var(--fs-200);
+    }
+
+    .tech-paragraph {
+        margin-inline: 12%;
+    }
+
+    .dot-indicators {
+        flex-direction: row;
+    }
+
+}
+/* -------------------------- */
+/* Custom Properties          */
+/* -------------------------- */
+
+
+:root {
+    /* These are primarily here a custom properties because they may be subject to change and this is
+    a very easy way to make those changes without going through all your css classes and making individual changes. */
+
+    /* colors */
+    --clr-dark: 230 35% 7%;
+    --clr-light: 231 77% 90%;
+    --clr-white: 0 0% 100%;
+
+    /* font-sizes */
+    --fs-900: 9.375rem;
+    --fs-800: 6.25rem;
+    --fs-700: 3.5rem;
+    --fs-600: 2rem;
+    --fs-500: 1.75rem;
+    --fs-400: 1.125rem;
+    --fs-300: 1rem;
+    --fs-200: 0.875rem;
+    /* rem is more accessiblity friendly, px may override an individuals manual settings. */
+    /* rem is the relative font size to the root element. so relative to 16px which is the default */
+    /* to get the rem number DIVIDE the pixel sizes by 16 */
+
+    /* font-families */
+    --ff-serif: "Bellefair", serif;
+    --ff-sans-cond: "Barlow Condensed", sans-serif;
+    --ff-sans-normal: "Barlow", sans-serif;
+
+}
+
+
+/* -------------------------- */
+/* Reset                      */
+/* -------------------------- */
+
+/* Box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/* resizing the pseudo elements as well because the star selector will select everything but not pseudo elements. */
+/* this retooling of the box sizes makes calculating width and height a lot easier */
+/* by default, height and width are calculated in addition to padding and border. With box-sizing: border-box, the height and width are calculated 
+with the padding and border included. */
+
+/* RESET MARGINS */
+
+body, 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+picture {
+    margin: 0;
+}
+
+/* This one is nice and I see why we do it. This makes it so we have a fresh start on spacing our elements. */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    font-weight: 400;
+} 
+/* this is to reduce the boldness of the text so it looks like the design file. */
+
+
+/* SET UP BODY */
+
+body {
+    line-height: 1.5;
+    min-height: 100vh;
+    font-family: var(--ff-sans-normal);
+    font-size: var(--fs-400);
+    background-color: hsl(var(--clr-dark));
+    color: hsl(var(--clr-white));
+}
+
+/* line height is default 1.4 but that is typically deemed too small so typically go with 1.5 or 1.6 */
+/* min-height: 100vh is a nice touch. I always get a little annoyed with new projects when I forget the body is like 10px high. */
+
+.logo {
+    position: absolute;
+    top: 3.3rem;
+    left: 3rem;
+}
+
+/* HAMBURGER */
+
+.hamburger {
+    cursor: pointer;
+  }
+  
+  .hamburger-lines {
+    transition: transform 1s ease-in-out;
+  }
+  
+  .hamburger.active .line-1 {
+    animation: rotateRight .5s ease-in-out forwards;
+  }
+
+  .hamburger.active {
+    margin-right: .30rem;
+  }
+  
+  .hamburger.active .line-2 {
+    animation: opacityDown .5s ease-in-out forwards;
+  }
+  
+  .hamburger.active .line-3 {
+    animation: rotateLeft .5s ease-in-out forwards;
+  }
+
+  .hamburger .line-1 {
+    animation: rotateBackRight .5s ease-in-out forwards;
+  }
+
+    .hamburger .line-2 {
+        animation: opacityUp .5s ease-in-out forwards;
+    }
+
+    .hamburger .line-3 {
+        animation: rotateBackLeft .5s ease-in-out forwards;
+    }
+
+  @keyframes rotateRight {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(45deg) translate(4px, -5px);
+    }
+  }
+
+  @keyframes opacityDown {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+    @keyframes rotateLeft {
+        0% {
+        transform: rotate(0deg);
+        }
+        100% {
+        transform: rotate(-45deg) translate(-10px, -3px);
+        }
+        
+    }
+
+    @keyframes rotateBackRight {
+        0% {
+        transform: rotate(45deg) translate(-4px, 5px);
+        }
+        100% {
+        transform: rotate(0deg);
+        }
+    }
+
+    @keyframes opacityUp {
+        0% {
+        opacity: 0;
+        }
+        100% {
+        opacity: 1;
+        }
+    }
+
+    @keyframes rotateBackLeft {
+        0% {
+        transform: rotate(-45deg) translate(10px, 3px);
+        }
+        100% {
+        transform: rotate(0deg);
+        }
+    }
+    
+  
+
+/* -------------------------- */
+
+
+
+.nav-list-container {
+    position: absolute;
+    top: 2rem;
+    right: 0;
+}
+
+/* home page css*/
+.home-page {
+    background-image: url('./assets/home/background-home-desktop.jpg');
+    background-size: cover;
+}
+
+.home-text-container {
+    flex-direction: column;
+    margin-top: 20rem;
+    --flow-space: 1rem;
+}
+
+.home-paragraph {
+    margin-right: 28.5rem;
+    line-height: 2rem;
+}
+
+/* destination page css */
+.destination-page {
+    background-image: url('./assets/destination/background-destination-desktop.jpg');
+    background-size: cover;
+}
+
+.dest-image-container {
+    margin-top: 2rem;
+    margin-right: 10rem;
+    --flow-space: 3rem;
+    min-width: 28rem;
+}
+
+.dest-img {
+    aspect-ratio: 1/1;
+}
+
+.dest-paragraph {
+    line-height: 2rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.dest-content-container {
+    --flow-space: 2rem;
+    flex-direction: column;
+    margin-right: 1.5rem;
+    max-width: 27rem;
+}
+
+.dest-travel-container {
+   padding-top: 1.5rem;
+   border-top: solid 1px hsl(var(--clr-white)/ .25); 
+}
+
+.dest-travel-container :first-child {
+    margin-right: 3rem;
+}
+
+.dest-travel-text-container {
+    --flow-space: 1rem;
+}
+
+/* crew page css */
+.crew-page {
+    background-image: url('./assets/crew/background-crew-desktop.jpg');
+    background-size: cover;
+}
+
+.crew-image {
+    position: fixed;
+    bottom: 0;
+    /* right: 10%; */
+    margin-left: 3rem;
+}
+
+.crew-content-container {
+    margin-top: 13rem;
+}
+
+.crew-text-menu-container {
+    flex: 1;
+    --flow-space: 1rem;
+    flex-direction: column;
+    margin-top: 8rem;
+}
+
+#crew-menu {
+    margin-top: 6rem;
+    justify-content: flex-start;
+}
+
+.crew-image-container {
+    flex: 1;    
+}
+
+/* technology page css */
+.technology-page {
+    background-image: url('./assets/technology/background-technology-desktop.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.tech-content-container {
+    flex-direction: column;
+    margin-right: 10rem;
+    --flow-space: 3rem;
+    min-width: 28rem;
+}
+
+.tech-text-container {
+    flex-direction: column;
+    padding-top: 6rem;
+    padding-left: 7rem;
+}
+
+.tech-paragraph {
+    margin-right: 23rem;
+    line-height: 2rem;
+}
+
+.tech-menu-container {
+    margin-top: 6.5rem;
+}
+
+@media (max-width: 1235px) {
+    .tech-text-container {
+        padding-left: 1rem;
+    }
+}
+
+@media (max-width: 1149px) and (min-width: 768px) {
+    .home-paragraph {
+        margin-right: 7rem;
+    }
+
+    .tech-text-container {
+        padding-left: 2rem;
+        max-width: 50%;
+    }
+
+    .tech-paragraph {
+        margin-right: 0;
+    }
+
+    .tech-image-container {
+        bottom: 10rem;
+        width: 360.5px;
+        height: 368.9px;
+    }
+}
+
+.tech-image-container {
+    
+    position: absolute;
+    right: 0;
+   
+}
+
+.tech-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    
+}
+
+
+/* MAKE IMAGES EASIER TO WORK WITH */
+
+img,
+picture {
+    display: block;
+    max-width: 100%;
+}
+
+/* display block just helps with spacing issues. */
+/* makes sure images will shrink when viewport gets narrower. */
+
+
+/* MAKE FORMS EASIER TO WORK WITH */
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* ooooooooooooook, did NOT know font properties where not inherited by default on these bad boys! */
+
+
+/* REMOVE ANIMATIONS FOR PEOPLE WHO HAVE TURNED THEM OFF */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after{
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* wow, very grateful to come accross this. I have been wanting to make sure that all of my projects are as accesible as possible and this is a very
+important step in doing just that. */
+
+
+/* -------------------------- */
+/*Utility Classes             */
+/* -------------------------- */
+
+.flex {
+    display: flex;
+    gap: var(--gap, 1rem);
+}
+
+.grid {
+    display: grid;
+    gap: var(--gap, 1rem);
+}
+
+/* variable gap so that can be easily changed for everything later but a default of 1rem for the time being. */
+
+.flow > * + * {
+    margin-top: var(--flow-space, 1rem);
+}
+/* * + * is a sibling selector. It selects all elements that are siblings of another element. This will not affect the top child 
+because this selector is looking to see if the child has a sibling above it in the html. */
+/* you can acheive the same thing with: .flow > *:not(:first-child) HOWEVER this adds secificity and could cause issues with overriding styling. */
+/* this spacing method comes from Andy Bell. */
+
+.container {
+    padding-inline: 2em; 
+    margin-inline: auto;
+    max-width: 80rem;
+}
+
+/* padding of 0 on top and bottom, 2em on left and right to keep things from touching side of the page. */
+/* HOWEVER there is modern css padding-inline that uses your main axis (which is x I guess?) and adds 2em on both sides. */
+/* margin-inline is similar thinking to the padding.  */
+
+.top-section {
+    margin-top: 15rem;
+}
+
+.bottom-section {
+    margin-bottom: 10vh;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap; /* added line */
+    border: 0;
+}
+
+/* sr-only is a class that is used to hide things from the screen but not from screen readers. Again, another really imporant tool for 
+accessibility. */
+
+/* colors */
+
+/* RGB and HSL have an advantage over hex which is that it is easier to change the alpha. */
+
+.bg-dark { background-color: hsl(var(--clr-dark) /* / 0.9 if we uncomment this it will change the alpha by .9*/);}
+.bg-light {background-color: hsl(var(--clr-light));}
+.bg-white {background-color: hsl(var(--clr-white));}
+.bg-light-two {background-color: hsl(var(--clr-light)/.2);} 
+
+.text-light {color: hsl(var(--clr-light));} 
+.text-white {color: hsl(var(--clr-white));}
+.text-dark {color: hsl(var(--clr-dark));}
+
+/* HSL MUST BE NEXT TO BRAKETS: hsl (BAD)  ----  hsl(GOOD) */
+
+
+/* typography */
+
+.ff-serif { font-family: var(--ff-serif); } 
+.ff-sans-cond { font-family: var(--ff-sans-cond); } 
+.ff-sans-normal { font-family: var(--ff-sans-normal); } 
+
+.letter-spacing-1 { letter-spacing: 4.75px; } 
+.letter-spacing-2 { letter-spacing: 2.7px; } 
+.letter-spacing-3 { letter-spacing: 2.35px; } 
+
+.uppercase { text-transform: uppercase; }
+/* this utility class is very handy, remember this one because im sure it will come up a lot. */
+
+.fs-900 { font-size: var(--fs-900); }
+.fs-800 { font-size: var(--fs-800); }
+.fs-700 { font-size: var(--fs-700); }
+.fs-600 { font-size: var(--fs-600); }
+.fs-500 { font-size: var(--fs-500); }
+.fs-400 { font-size: var(--fs-400); }
+.fs-300 { font-size: var(--fs-300); }
+.fs-200 { font-size: var(--fs-200); }
+
+
+.fs-900,
+.fs-800,
+.fs-700,
+.fs-600 {
+    line-height: 1.1;
+}
+
+.numbered-title {
+    font-family: var(--ff-sans-cond);
+    font-size: var(--fs-500);
+    text-transform: uppercase;
+    letter-spacing: 4.72px;
+    position: relative;
+    top: 13rem;
+    right: .25rem;
+}
+
+/* dont forget you can reference specific elements nested within the element with the assigned class */
+.numbered-title span {
+    color: hsl(var(--clr-white)/ .25);
+    margin-right: .5em;
+    font-weight: 700;
+}
+
+
+
+/* -------------------------- */
+/*Componenets                 */
+/* -------------------------- */
+
+/* Componenets are more complex. They may be for one element on a page but they have larger complexity to them compared to utility classes. */
+
+.large-button-container {
+    margin-top: 27rem;
+    margin-right: 1.5rem;
+}
+
+.large-button {
+    justify-content: center;
+    align-items: center;
+    width: 17.12rem;
+    height: 17.12rem;
+    border-radius: 50%;
+    border: 0;
+    text-decoration: none;
+    text-align: center;
+    box-shadow: 0 0 0 0 hsl(var(--clr-white)); /* lol, I did this on accident to try and animate a mouse off effect and its actually really cool!*/
+    transition: box-shadow 0.8s ease-in-out;
+    cursor: pointer;
+}
+
+.large-button a {
+    text-decoration: none;
+    color: hsl(var(--clr-dark));
+}
+
+.large-button:hover{
+    box-shadow: 0 0 0 5rem hsl(var(--clr-white)/.10);
+    /* transition: box-shadow 0.7s ease-in-out; This was causing issues where I couldn't animate the mouse out. This is because the 
+    transition was strictly for when you enter the hover state and not when you leave it. To fix this I moved the transition to the .large-button
+    class so it would apply to both.*/
+}
+
+
+
+/* .large-button {
+    display: grid;
+    place-items: center;
+    padding: 0 2em;
+    border-radius: 50%;
+    z-index: 1; this here is important because it keeps the index of the pseudo element within the context of this element. 
+    aspect-ratio: 1;
+    text-decoration: none;
+}   Kevin Powells solution. -- the apsect ratio is a cool new modern css thing to play around with. I also like how with 
+grid you can simply center something with only one line.*/
+
+
+/* .large-button::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: hsl( var(--clr-white) / .15);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 500ms linear, transform 750ms ease-in-out;
+}
+
+.large-button:hover::after,
+.large-button:focus::after {
+    opacity: 1;
+    transform: scale(1.5);
+} Kevin's solution to the animated hover. Very interesting, thought my solution was a bit simpler but there may be more
+to whats going on here. I would very much like to know what the pros and cons would be to each approach. Regardless
+I really like pseudo-elements and enjoyed learning about his solution to this problem.*/
+
+
+
+.primary-navigation {
+    display: flex;
+    justify-content: center;
+    gap: var(--gap, 4.5rem);
+    --underline-gap: 1.8rem 0;
+    margin: 0;
+    padding: 0 12em 0 7em;
+    align-items: center;
+    height: 5em;
+    list-style: none;
+    background-color: hsl(var(--clr-white)/ .05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px); /* fallback for older versions of Safari */
+}
+
+.primary-navigation a{
+    text-decoration: none;
+    color: hsl(var(--clr-white));
+    font-size: var(--fs-400);
+    font-family: var(--ff-sans-cond);
+    letter-spacing: 2.7px;
+    text-transform: uppercase;
+    padding: 1.8em 0;
+}
+
+.primary-navigation span{
+    margin-right: .5em;
+    letter-spacing: 2.7px;
+    font-family: var(--ff-sans-cond);
+    font-weight: 700;
+}
+
+.primary-navigation::before {
+    content: '';
+    position: absolute;
+    top: rem(2.5);
+    right: 57rem;
+    width: 31.5vw;
+    height: 1px;
+    background-color: hsl(var(--clr-white)/ .25);
+}
+
+
+.tabs-navigation {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: var(--gap, 2rem);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background-color: hsl(var(--clr-white)/0);
+}
+
+.tabs-navigation button{
+    color: hsl(var(--clr-light));
+    font-size: var(--fs-400);
+    font-family: var(--ff-sans-cond);
+    background-color: hsl(var(--clr-dark)/0);
+    letter-spacing: 2.7px;
+    text-transform: uppercase;
+    padding: .3em 0;
+}
+
+
+.dot-indicators {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    background-color: hsl(var(--clr-dark)/ 0);
+    gap: var(--gap, 1.5rem);
+}
+
+.dot-indicators > * {
+    background-color: hsl(var(--clr-white)/ .05);
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 0;
+}
+
+.dot-indicators > *:hover,
+.dot-indicators > *:focus {
+    background-color: hsl(var(--clr-white)/ .50);
+}
+
+.dot-indicators > .active,
+.dot-indicators > [aria-selected="true"] {
+    background-color: hsl(var(--clr-white));
+}
+
+
+/*     LARGE DOT INDICATORS       */
+
+.large-dot-indicators {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    background-color: hsl(var(--clr-dark)/0);
+    gap: var(--gap, 2rem);
+}
+
+.large-dot-indicators > * {
+    background-color: hsl(var(--clr-dark));
+    border: solid .05em hsl(var(--clr-white)/ .25);
+    color: hsl(var(--clr-white));
+    height: 5rem;
+    width: 5rem;
+    font-family: var(--ff-serif);
+    font-size: var(--fs-600);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.large-dot-indicators > *:hover,
+.large-dot-indicators > *:focus {
+    border: solid .05rem hsl(var(--clr-white));
+}
+
+.large-dot-indicators > .active,
+.large-dot-indicators > [aria-selected="true"] {
+    background-color: hsl(var(--clr-white));
+    color: hsl(var(--clr-dark));
+}
+
+
+.underline-indicators > * {
+    padding: var(--underline-gap, 1.6em 0);
+    border: 0;
+    border-bottom: solid .2rem hsl(var(--clr-white)/ .05);
+    cursor: pointer;
+}
+
+.underline-indicators > *:hover,
+.underline-indicators > *:focus {
+    border-color: hsl(var(--clr-white)/ .50);
+}
+
+.underline-indicators > .active,
+.underline-indicators > [aria-selected="true"] {
+    border-color: hsl(var(--clr-white));
+    color: hsl(var(--clr-white)/ 1);
+}
+
+/* .underline-indicators:hover > * {
+    border-bottom: solid 4px hsl(var(--clr-white)/ .25);
+}
+
+.underline-indicators:active > * {
+    border-bottom: solid 4px hsl(var(--clr-white));
+} I saved this because this particular selector will affect ALL decendents when the event happens instead of the specific decendent that the event is 
+acting upon.*/
+
+
+/* -------------------------- */
+/*Animations                  */
+/* -------------------------- */
+
+.rightside-content {
+    animation: fadeInRight 2.3s ease-in-out;
+}
+
+.quick-rightside-content {
+    animation: fadeInRight 1.5s ease-in-out;
+}
+
+
+.quick-rightside-out {
+    animation: fadeOffRight 1.5s ease-in-out;
+}
+
+.leftside-content {
+    animation: fadeInLeft 2s ease-in-out;
+}
+
+.quick-leftside-content {
+    animation: fadeInLeft 1.5s ease-in-out;
+}
+
+.bottom-content {
+    animation: fadeUp 2.5s ease-in-out;
+}
+
+.quick-bottom-content {
+    animation: fadeUp 1.5s ease-in-out;
+}
+
+.top-content {
+    animation: fadeDown 2.5s ease-in-out;
+}
+
+.quick-top-content {
+    animation: fadeDown 1.5s ease-in-out;
+}
+
+.fade-in-content {
+    animation: fadeIn 2.5s ease-in-out;
+}
+
+.quick-fade-in-content {
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.fade-out-content {
+    animation: fadeOut 1.5s ease-in-out;
+}
+
+@keyframes fadeOffRight {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+
+@keyframes fadeOffLeft {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+
+
+/* -------------------------- */
+/*Media Queries               */
+/* -------------------------- */
+
+/* MAX-WIDTH 1480PX */
+
+@media (max-width: 1480px) {
+    .primary-navigation::before {
+        display: none;
+    }
+
+    .crew-image {
+        max-height: 70vh;
+    }
+
+    .crew-text-menu-container {
+        margin-top: 4rem;
+    }
+
+    #crew-menu {
+        margin-top: 2rem;
+    }
+}
+
+/* MAX-WIDTH 1080PX */
+
+@media (max-width: 1080px) {
+    .primary-navigation {
+        padding: 0 3rem 0 3rem;
+        gap: var(--gap, 1.5rem);
+    }
+}
+
+/* MAX-WIDTH 768PX */
+
+@media (max-width: 768px) {
+
+    body {
+        max-width: 768px;
+        min-height: 1024px;
+        max-height: 1024px;
+    }
+
+    .container {
+        height: 100%;
+        width: 100%;
+    }
+
+    .logo {
+        top: 1.5rem;
+        left: 2rem;
+    }
+
+    .nav-list-container {
+        top: 0;
+    }
+
+    .flow > * + * {
+        margin-top: .75rem;
+    }
+
+    .flex {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .top-section {
+        margin-top: 4rem;
+    }
+
+    /* home media queries */
+
+    .home-page {
+        background-image: url('./assets/home/background-home-tablet.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .home-text-container {
+        margin-top: 12rem;
+    }
+
+    .home-paragraph {
+        margin-right: 0;
+        text-align: center;
+    }
+
+    .large-button-container {
+        margin-top: 7rem;
+    }
+
+    /* destination media queries */
+    .destination-page {
+        background-image: url('./assets/destination/background-destination-tablet.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    #dest-name {
+        margin-top: 2rem;
+        font-size: 5rem;
+    }
+
+    .dest-image-container {
+        margin-top: 9rem;
+        margin-right: 0;
+        min-width: 0;
+        width: 300px;
+        height: 300px;
+    }
+
+    .dest-img {
+        width: 300px;
+        height: 300px;
+        aspect-ratio: 1/1;
+    }
+
+    .dest-paragraph {
+        text-align: center;
+        font-size: var(--fs-200);
+    }
+
+    .dest-content-container {
+        min-width: 0;
+        margin: 0;
+        max-width: max-content;
+    }
+
+    .dest-travel-container {
+        flex-direction: row;
+        max-width: max-content;
+        gap: 5rem;
+        padding: 1.5rem 5rem 0 5rem; 
+    }
+
+    /* crew media queries */
+
+    .crew-page {
+        background-image: url('./assets/crew/background-crew-tablet.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .crew-image {
         position: absolute;
-        top:46vh;
+        bottom: 0;
+        margin-left: 0;
+        min-width: 384px;
+        height: 50vh;
+        width: 532px;
+        object-fit: scale-down;
+        object-position: center;
+    }
+
+    #crew-role {
+        font-size: 1.5rem;
+    }
+
+    #crew-name {
+        font-size: 2.5rem;
+    }
+
+    #crew-bio {
+        font-size: var(--fs-300);
+        margin-inline: 5.5rem;
+    }
+
+    .crew-content-container {
+        margin-top: 5rem;
+    }
+
+    .crew-text-menu-container {
+       max-width: 80rem;
+       justify-content: center;
+       margin-top: 6rem;
+       text-align: center;
+    }
+
+    #crew-intro {
+        order: 1;
+    }
+
+    #crew-menu {
+      order: 2;
+      scale: 50%;
+      margin-top: .5rem;
+    }
+
+    /* technology media queries */
+
+    .technology-page {
+        background-image: url('./assets/technology/background-technology-tablet.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .tech-content-container {
+        margin-top: 25rem;
+        margin-right: 0;
+        min-width: none;
+    }
+
+    .tech-paragraph {
+        margin-right: 0;
+        text-align: center;
+    }
+
+    .tech-menu-container {
+        scale: 75%;
+        margin-top: 3rem;
+    }
+
+    .tech-text-container {
+        padding-top: 1rem;
+        padding-left: 0;
+    }
+
+    .tech-image-container {
+        bottom: 50%;
+        margin-top: 0;
+   
+        
+    }
+
+
+    /* utility class media queries */
+
+    .numbered-title {
+        position: relative;
+        top: 8rem;
+        left: 1rem;
+        font-size: var(--fs-400);
+    }
+
+    .primary-navigation {
+        padding: 0 3rem 0 3rem;
+        gap: var(--gap, 1.5rem);
+    }
+
+    .primary-navigation span {
+        display: none;
+    }
+
+    .primary-navigation a {
+        font-size: var(--fs-200);
+    }
+
+    .large-button {
+        width: 17.12rem;
+        height: 17.12rem;
+    }
+
+    .dot-indicators {
+        flex-direction: row;
+    }
+
+    .large-dot-indicators {
+        flex-direction: row;
+    }
+
+    .large-dot-indicators > * {
+        height: 5rem;
+        width: 5rem;
+    }
+
+    .large-dot-indicators > *:hover,
+    .large-dot-indicators > *:focus {
+        border: solid .05rem hsl(var(--clr-white));
+    }
+
+    .large-dot-indicators > .active,
+    .large-dot-indicators > [aria-selected="true"] {
+        background-color: hsl(var(--clr-white));
+        color: hsl(var(--clr-dark));
+    }
+
+    .underline-indicators > * {
+        padding: var(--underline-gap, 1.6em 0);
+        border: 0;
+        border-bottom: solid .2rem hsl(var(--clr-white)/ 0);
+        cursor: pointer;
+    }
+
+    .underline-indicators > *:hover,
+    .underline-indicators > *:focus {
+        border-color: hsl(var(--clr-white)/ .50);
+    }
+
+    .underline-indicators > .active,
+    .underline-indicators > [aria-selected="true"] {
+        border-color: hsl(var(--clr-white));
+        color: hsl(var(--clr-white)/ 1);
+    }
+}
+
+@media (min-width: 599px) {
+    .hamburger {
+        display: none;
+    }
+}
+
+/* MAX-WIDTH 542PX */
+
+@media (max-width: 542px) {
+    .tech-content-container h2 {
+        font-size: var(--fs-500);
+    }
+
+    .tech-content-container p {
+        font-size: var(--fs-200);
+    }
+}
+
+
+
+/* MAX-WIDTH 600PX */
+
+@media (max-width: 600px) {
+
+    .home-page body html {
+        /* max-width: 375px;
+        min-height: 667px; */
+        min-height: 920px;
+        max-width: 600px;
+    }
+
+    .flex {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container {
+        padding-inline: 1rem;
+        width: auto;
+        /* max-width: 23.4rem; */
+
+    }
+
+    .primary-navigation {
+        position: relative;
+        visibility: hidden;
+        padding: 7rem 0 0 2rem;
+        height: 100vh;
+        width: 0;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+        z-index: 1;
+    }
+
+    .primary-navigation > * {
+        border: none;
+        padding: 0;
+    }
+
+    .primary-navigation span {
+        display: inline-block;
+    }
+
+    .bottom-section {
+        margin-bottom: 0;
+    }
+
+    .hamburger {
+        position: absolute;
+        top: 1.75rem;
+        right: 1.5rem;
+        z-index: 2;
+    }
+
+    .numbered-title {
+        position: absolute; /*FIX THIS!!!<<<<<<<*/
+       /* left: 32vw; */
+        top: 5.5rem; 
+        font-size: var(--fs-300);
+        letter-spacing: 2.7px;
+        text-align: center;
+    }
+
+    .technology-page .numbered-title {
+        left: 5rem;
+    }
+
+    .numbered-title span {
+        margin-right: 1em;
+    }
+
+    .tabs-navigation {
+        gap: var(--gap, 1.25rem);
+    }
+
+    .tabs-navigation button {
+        font-size: var(--fs-300);
+    }
+
+    /* home page mobile */
+
+    .home-page {
+        background-image: url('./assets/home/background-home-mobile.jpg');
+        background-repeat: no-repeat;
+        background-position-y: 0rem;
+        background-size: contain;
+        /* height: 667px;
+        width: 375px; */
+        height: auto;
+        width: 100vw;
+        overflow: hidden;
+    }
+
+    .home-text-container {
+        margin-top: 8rem;
+    }
+
+    .home-intro {
+        font-size: var(--fs-300);
+    }
+
+    .home-title {
+        font-size: 5rem;
+    }
+
+    .home-paragraph {
+        font-size: var(--fs-200);
+        margin-inline: .5rem;
+    }
+
+    .large-button-container {
+        margin-top: 1.75rem;
+        margin-left: 1.5rem;
+        height: 150px;
+        width: 150px;
+    }
+
+    .large-button {
+        width: 150px;
+        height: 150px;
+        font-size: var(--fs-400); 
+    }
+
+    .large-button a {
+        margin-top: .25rem;
+    }
+
+    /* destination page mobile */
+
+    .destination-page {
+        background-image: url('./assets/destination/background-destination-mobile.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        aspect-ratio: 15/34;
+        height: 850px;
+        width: 100vw;
+        overflow: hidden;
+    }
+    
+    .dest-content-container {
+        gap: 0;
+    }
+
+    .dest-image-container {
+        margin-top: 4rem;
+        margin-right: 0;
+        min-width: 0;
+        height: 170px;
+        width: 170px;
+    
+    }
+
+    /* ^^^ SCALE REALLY SCREWED WITH ME FOR A WHILE ON THIS ONE!!!
+    I had .68 scale set to tablet size and then .40~ on mobile and I couldn't figure out why the container wasnt fitting to its content since it is a flex item. Come to find out scale only seems to scale down the content, not the container. Since I had scaled it down in two diff media queries it made it even harder to decipher what was going on. I need to be very careful with this in the future.  */
+
+    .dest-paragraph {
+        font-size: var(--fs-200);
+        padding-bottom: 1.5rem;
+    }
+
+    #dest-description {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    #dest-name {
+        padding-top: .25rem;
+        font-size: var(--fs-700)
+    }
+
+    .dest-travel-container {
+        padding-top: 4rem;
+        padding: 0;
+        gap: var(--gap, .5rem);
+    
+        text-align: center;
+    }
+
+    .dest-travel-container > :first-child {
+        margin: 0;
+        padding-top: 1.5rem;
+        width: 20rem;
+    }
+
+    .dest-travel-container > :nth-child(2) {
+        margin: 0;
+        width: 20rem;
+    }
+
+    .dest-travel-container > *:first-child > *:first-child {
+        /* CSS styles for the first child of the first child */
+        font-size: var(--fs-200);
+        margin: 0;
+      }
+
+    .dest-travel-container > *:first-child > *:nth-child(2) {
+        /* CSS styles for the last child of the first child */
+        font-size: var(--fs-500);
+        
+      }
+
+    .dest-travel-container > *:nth-child(2) > *:first-child {
+        /* CSS styles for the first child of the last child */
+        font-size: var(--fs-200);
+        margin: 0;
+      }
+
+    .dest-travel-container > *:nth-child(2) > *:nth-child(2) {
+        /* CSS styles for the last child of the last child */
+        font-size: var(--fs-500);
+        
+      }
+
+    /* crew page mobile */
+
+    .crew-page {
+        background-image: url('./assets/crew/background-crew-mobile.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        aspect-ratio: 15/34;
+        height: 710px;
+        width: 100vw;
+    }
+
+    #crew-role {
+        font-size: var(--fs-300);
+    }
+
+    #crew-name {
+        font-size: var(--fs-500);
+    }
+
+    #crew-bio {
+        font-size: var(--fs-300);
+        margin-inline: 0rem;
+    }
+
+    .crew-image {
+        position: static;
+        /* bottom: 55vh;
+        left: 11vw; */
+        margin-left: 0;
+        min-width: 0;
+        height: 226.15px;
+        width: 80vw;
+        object-fit: scale-down;
+        object-position: center;
+        border-bottom: solid .1rem hsl(var(--clr-white)/ .25);
+    }
+
+    .crew-text-menu-container {
+    }
+
+    .crew-text-menu-container:first-child {
+        margin-top: 2rem;
+        margin-inline: 2rem;
+    }
+
+    #crew-menu {
+        /* position: absolute;
+        top:46vh; */
+        order: 1;
+    }
+
+    #crew-intro {
+        order: 2;
     }
 
     /* technology page mobile */
