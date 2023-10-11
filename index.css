@@ -275,6 +275,7 @@ body {
     position: fixed;
     bottom: 0;
     /* right: 10%; */
+    max-height: 75vh;
     margin-left: 3rem;
 }
 
@@ -292,6 +293,7 @@ body {
 #crew-menu {
     margin-top: 6rem;
     justify-content: flex-start;
+    padding-bottom: 4rem;
 }
 
 .crew-image-container {
@@ -331,6 +333,10 @@ body {
 @media (max-width: 1235px) {
     .tech-text-container {
         padding-left: 1rem;
+    }
+
+    #crew-menu {
+        margin-top: 2rem;
     }
 }
 
@@ -1061,7 +1067,7 @@ acting upon.*/
         right: 15%;
         margin-left: 0;
         min-width: 384px;
-        max-height: 50vh;
+        max-height: 44vh;
         width: 532px;
         object-fit: scale-down;
         object-position: center;
@@ -1273,6 +1279,7 @@ acting upon.*/
 
     .bottom-section {
         margin-bottom: 0;
+        padding-bottom: 0;
     }
 
     .hamburger {
@@ -1503,7 +1510,7 @@ acting upon.*/
         background-repeat: no-repeat;
         background-size: cover;
         aspect-ratio: 15/34;
-        height: 710px;
+        height: 850px; /* 710px */
         width: 100vw;
     }
 
