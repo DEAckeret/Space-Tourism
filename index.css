@@ -1454,6 +1454,7 @@ acting upon.*/
         aspect-ratio: 15/34;
         height: 710px;
         width: 100vw;
+        overflow: hidden;
     }
 
     #crew-role {
@@ -1510,14 +1511,16 @@ acting upon.*/
         background-repeat: no-repeat;
         background-size: cover;
         aspect-ratio: 15/34;
-        height: 850px; /* 710px */
+        height: 710px;
         width: 100vw;
+        overflow: hidden;
     }
 
     .tech-image-container {
         height: auto;
+        max-height: 173px;
         width: 100vw;
-        bottom: 68%;
+        top: 15vh;
     }
 
     .tech-image-container img {
